@@ -1,4 +1,4 @@
-Dependencies for Project 'Template', Target 'Template': (DO NOT MODIFY !)
+Dependencies for Project 'LED', Target 'LED': (DO NOT MODIFY !)
 F (.\main.c)(0x6180E414)(-c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I..\CORE -I..\OBJ -I..\USER -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HALLIB\STM32F4xx_HAL_Driver\Inc -I..\HARDWARE\LED-I D:\科技树训练\控制组第一次任务\USER\RTE-I E:\MDK5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-I E:\MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o ..\obj\main.o --depend ..\obj\main.d)
 I (stm32f4xx.h)(0x5D8194E8)
 I (stm32f407xx.h)(0x5D8194E8)
