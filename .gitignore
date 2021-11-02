@@ -1,0 +1,6 @@
+#过滤中间文件
+/OBJ/*
+!/OBJ/*.hex
+
+#过滤vscode文件
+/USER/.vscode/
