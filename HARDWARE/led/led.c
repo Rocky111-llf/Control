@@ -1,17 +1,14 @@
 #include "led.h"
-#include "sys.h"
 
 void led_init(void){
-	GPIO_InitTypeDef GPIO_InitStructure;
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOF, ENABLE);
+	GPIO_InitTypeDef GPIO_Initure;
+  __HAL_RCC_GPIOF_CLK_ENABLE();          
 	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9 |GPIO_Pin_10;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+  GPIO_Initure.Pin=GPIO_PIN_9|GPIO_PIN_10; 
+  GPIO_Initure.Mode=GPIO_MODE_OUTPUT_PP;  
+  GPIO_Initure.Pull=GPIO_PULLUP;          
+  GPIO_Initure.Speed=GPIO_SPEED_HIGH;     
+  HAL_GPIO_Init(GPIOF,&GPIO_Initure);
 	
-	GPIO_Init(GPIOF,&GPIO_InitStructure);
-	
-	GPIO_SetBits(GPIOF,GPIO_Pin_9 | GPIO_Pin_10);
+	HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9|GPIO_PIN_10,GPIO_PIN_SET);
 }

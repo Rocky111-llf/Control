@@ -4,18 +4,18 @@
 
 int main()
 {
-	led_init();
+	HAL_Init();
+	Stm32_Clock_Init(336, 8, 2, 7);
 	delay_init(168);
-	
+	led_init();
 	while(1){
-		GPIO_ResetBits(GPIOF,GPIO_Pin_9);
+		HAL_GPIO_WritePin(GPIOF,GPIO_PIN_9,GPIO_PIN_SET);
 		delay_ms(500);
-		GPIO_SetBits(GPIOF,GPIO_Pin_9);
-		GPIO_ResetBits(GPIOF,GPIO_Pin_10);
+		HAL_GPIO_WritePin(GPIOF,GPIO_PIN_9,GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOF,GPIO_PIN_10,GPIO_PIN_SET);
 		delay_ms(500);
-		GPIO_SetBits(GPIOF,GPIO_Pin_10);
+		HAL_GPIO_WritePin(GPIOF,GPIO_PIN_10,GPIO_PIN_RESET);
+	
 	}
-
+	
 }
-
-
