@@ -111,19 +111,23 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	if(huart->Instance==USART1)//如果是串口1
 	{
-		if((USART_RX_STA&0x8000)==0)//接收未完成
+		if((USART_RX_STA & 0x8000) == 0)//接收未完成
 		{
-			if(USART_RX_STA&0x4000)//接收到了0x0d
+			if(USART_RX_STA & 0x4000)//接收到了0x0d
 			{
-				if(aRxBuffer[0] == 0x5D)USART_RX_STA |= 0x8000;
-				else{
-					USART_RX_BUF[USART_RX_STA] = aRxBuffer[0];
+				if(aRxBuffer[0] == 0x5D){
+					USART_RX_STA |= 0x8000;
+					//printf("hi\n");
+				}else{
+					USART_RX_BUF[USART_RX_STA & 0x3FFF] = aRxBuffer[0];
 					USART_RX_STA++;
-					if(USART_RX_STA & 0x3FFF> USART_REC_LEN - 1)USART_RX_STA = 0;
+					//printf("haha\n");
+					if((USART_RX_STA & 0x3FFF)> USART_REC_LEN - 1)USART_RX_STA = 0;
 				} 
 			}else{
 				if (aRxBuffer[0] == 0x5B)
 				{
+					//printf("hello\n");
 					USART_RX_STA |= 0x4000;
 				}
 			}

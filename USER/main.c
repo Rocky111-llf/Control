@@ -14,7 +14,7 @@ int main()
 		if (USART_RX_STA & 0x8000)
 		{
 			int i;
-			for (i = 0; i < USART_REC_LEN; i++)
+			for (i = 0; i < (USART_RX_STA & 0x3FFF); i++)
 			{
 				if(USART_RX_BUF[i] == 0x01){
 					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9,GPIO_PIN_RESET);
@@ -22,7 +22,7 @@ int main()
 					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9,GPIO_PIN_SET);
 					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_10, GPIO_PIN_RESET);
 					delay_ms(500);
-					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9,GPIO_PIN_SET);
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_10,GPIO_PIN_SET);
 				}
 			}
 			USART_RX_STA = 0;
