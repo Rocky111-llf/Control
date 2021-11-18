@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\OBJ;..\USER;..\SYSTEM\delay;..\SYSTEM\sys;..\HALLIB\STM32F4xx_HAL_Driver\Inc;..\HARDWARE\LED;..\HARDWARE\UART1</IncludePath>
+              <IncludePath>..\CORE;..\OBJ;..\USER;..\SYSTEM\delay;..\SYSTEM\sys;..\HALLIB\STM32F4xx_HAL_Driver\Inc;..\HARDWARE\LED;..\HARDWARE\UART1;..\HARDWARE\NVIC</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -667,6 +667,11 @@
               <FileName>uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\UART1\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\NVIC\exti.c</FilePath>
             </File>
           </Files>
         </Group>
