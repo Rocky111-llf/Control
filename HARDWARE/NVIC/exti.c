@@ -1,10 +1,11 @@
 #include "exti.h"
 #include "delay.h"
+#include "led.h"
 
 void exti_init(void){
     GPIO_InitTypeDef gpio_init;
     __HAL_RCC_GPIOA_CLK_ENABLE();
-    __HAL_RCC_GPIOA_CLK_ENABLE();
+    __HAL_RCC_GPIOE_CLK_ENABLE();
     gpio_init.Pin = GPIO_PIN_0;
     gpio_init.Mode = GPIO_MODE_IT_RISING;
     gpio_init.Pull = GPIO_PULLDOWN;
@@ -42,7 +43,7 @@ void EXTI4_IRQHandler(void){
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_PIN){
-    delay_ms(100);
+    delay_ms(10);
     switch (GPIO_PIN) {
         case GPIO_PIN_0:
             if(HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_0) == 1){
