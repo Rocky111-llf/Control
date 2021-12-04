@@ -2,6 +2,7 @@
 #include "delay.h"
 #include "led.h"
 #include "uart.h"
+#include "exti.h"
 
 int main()
 {
