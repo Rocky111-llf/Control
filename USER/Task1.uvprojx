@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\OBJ;..\USER;..\SYSTEM\delay;..\SYSTEM\sys;..\HALLIB\STM32F4xx_HAL_Driver\Inc;..\HARDWARE\LED;..\HARDWARE\UART1;..\HARDWARE\NVIC</IncludePath>
+              <IncludePath>..\CORE;..\OBJ;..\USER;..\SYSTEM\delay;..\SYSTEM\sys;..\HALLIB\STM32F4xx_HAL_Driver\Inc;..\HARDWARE\LED;..\HARDWARE\UART1;..\HARDWARE\NVIC;..\HARDWARE\SCHEDULE;..\HARDWARE\USERCTRL</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -672,6 +672,16 @@
               <FileName>exti.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\NVIC\exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>task2_scheduler.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\SCHEDULE\task2_scheduler.c</FilePath>
+            </File>
+            <File>
+              <FileName>user_ctrl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\USERCTRL\user_ctrl.c</FilePath>
             </File>
           </Files>
         </Group>
