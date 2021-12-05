@@ -17,4 +17,6 @@ typedef struct {//用户控制句柄
 
 user_handle user_ctrl_handle;
 
+void user_ctrl(void);
+
 #endif

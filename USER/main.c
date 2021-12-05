@@ -4,6 +4,7 @@
 #include "uart.h"
 #include "exti.h"
 #include "task2_scheduler.h"
+#include "user_ctrl.h"
 
 int main()
 {
@@ -14,7 +15,9 @@ int main()
 	exti_init();
 	uart_init(115200);
 	scheduler_setup();
+	user_ctrl_handle.user_task_runing = 1;
 	while(1){
+		user_ctrl();
 		scheduler_run();
 	}
 	
