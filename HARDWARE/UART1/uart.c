@@ -1,9 +1,35 @@
 #include "uart.h"
+#include "stdio.h"
 
 uint8_t rx_buff[RX_BUFF_SIZE];
 uint8_t uart_rx_buff[DATA_MAX_LEN];
 UART_HandleTypeDef uart_handle;
 uint16_t uart_rx_state = 0;
+
+//加入以下代码,支持printf函数,而不需要选择use MicroLIB	  
+//#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)	
+#if 1
+#pragma import(__use_no_semihosting)             
+//标准库需要的支持函数                 
+struct __FILE 
+{ 
+	int handle; 
+}; 
+
+FILE __stdout;       
+//定义_sys_exit()以避免使用半主机模式    
+void _sys_exit(int x) 
+{ 
+	x = x; 
+} 
+//重定义fputc函数 
+int fputc(int ch, FILE *f)
+{ 	
+	while((USART1->SR&0X40)==0);//循环发送,直到发送完毕   
+	USART1->DR = (uint8_t) ch;      
+	return ch;
+}
+#endif 
 
 void uart_init(uint32_t bound){
     uart_handle.Instance = USART1;
